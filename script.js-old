@@ -1,0 +1,70 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const inputText = document.getElementById('input-text');
+    const outputText = document.getElementById('output-text');
+    const placeholderImage = document.getElementById('placeholder-image');
+    const outputTextContainer = document.getElementById('output-text-container');
+    const copyMessage = document.getElementById('copy-message');
+    const advertiringresartexto = document.getElementById('advertir-ingresar-texto');
+    const sinmensaje = document.getElementById('sin-mensaje');
+
+    const encryptBtn = document.getElementById('encrypt-btn');
+    const decryptBtn = document.getElementById('decrypt-btn');
+    const copyBtn = document.getElementById('copy-btn');
+
+    const encrypt = (text) => {
+        return text.replace(/e/g, 'enter')
+                   .replace(/i/g, 'imes')
+                   .replace(/a/g, 'ai')
+                   .replace(/o/g, 'ober')
+                   .replace(/u/g, 'ufat');
+    };
+
+    const decrypt = (text) => {
+        return text.replace(/enter/g, 'e')
+                   .replace(/imes/g, 'i')
+                   .replace(/ai/g, 'a')
+                   .replace(/ober/g, 'o')
+                   .replace(/ufat/g, 'u');
+    };
+
+    const isValidText = (text) => {
+        return /^[a-z\s]+$/.test(text);
+    };
+
+    const showOutput = (text) => {
+        placeholderImage.style.display = 'none';
+        advertiringresartexto.style.display = 'none';
+        sinmensaje.style.display = 'none';
+        outputTextContainer.style.display = 'block';
+        outputText.value = text;
+    };
+
+    encryptBtn.addEventListener('click', () => {
+        const text = inputText.value;
+        if (!isValidText(text)) {
+            alert('Por favor ingrese solo letras minúsculas y sin acentos.');
+            return;
+        }
+        const encryptedText = encrypt(text);
+        showOutput(encryptedText);
+    });
+
+    decryptBtn.addEventListener('click', () => {
+        const text = inputText.value;
+        if (!isValidText(text)) {
+            alert('Por favor ingrese solo letras minúsculas y sin acentos.');
+            return;
+        }
+        const decryptedText = decrypt(text);
+        showOutput(decryptedText);
+    });
+
+    copyBtn.addEventListener('click', () => {
+        outputText.select();
+        document.execCommand('copy');
+        copyMessage.classList.remove('hidden');
+        setTimeout(() => {
+            copyMessage.classList.add('hidden');
+        }, 2000);
+    });
+});

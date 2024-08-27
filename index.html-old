@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador de Texto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sección 1: Entrada de texto y botones -->
+        <div class="section" id="input-section">
+            <img src="imagenes/Header.png" alt="Logo" class="logo">
+            <textarea id="input-text" placeholder="Ingrese su texto aquí..."></textarea>
+            <button id="encrypt-btn">Encriptar</button>
+            <button id="decrypt-btn">Desencriptar</button>
+            <img src="imagenes/bi_exclamation-circle-fill.png" alt="Simbolo de Exclamacion" class="">
+            <p class="warning">Solo letras minúsculas y sin acentos</p>
+        </div>
+
+        <!-- Sección 2: Imagen o texto encriptado -->
+        <div class="section" id="output-section">
+            <img src="imagenes/Muñeco.png" alt="Imagen de espera" id="placeholder-image">
+            <p id="sin-mensaje">Ningún mensaje fue encontrado</p>
+            <p id="advertir-ingresar-texto">Ingresa el texto que desees encriptar o desencriptar.</p>
+            <div id="output-text-container">
+                <textarea id="output-text" readonly></textarea>
+                <button id="copy-btn">Copiar</button>
+                <p id="copy-message" class="hidden">Texto copiado</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p id="rodapie">Juliet Carapa Ingeniera en Informática</p>
+    </footer>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>
